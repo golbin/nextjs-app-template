@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+coverage/
+.turbo/
+.vercel/
+
+.env
+.env.*
+
+*.db
+*.sqlite
+*.sqlite3
+
+.DS_Store
+*.log
+*.tsbuildinfo
