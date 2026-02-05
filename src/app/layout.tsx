@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "@xterm/xterm/css/xterm.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -17,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Co-Vibe App Template",
-  description: "Co-Vibe App Template",
+  title: "Next.js SaaS Template",
+  description: "A multi-tenant SaaS template built with Next.js, React, and modern tooling.",
 };
 
 export default function RootLayout({

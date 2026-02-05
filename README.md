@@ -1,13 +1,43 @@
-# nextjs-app-template
+# nextjs-saas-template
 
-A Next.js app template.
+A multi-tenant SaaS template built with Next.js 16, React 19, and modern tooling.
+
+## Core Stack
+
+- **Framework**: Next.js 16.1 (App Router) + React 19.2
+- **Styling**: Tailwind CSS 4 + shadcn/ui (new-york style)
+- **Auth**: Better Auth 1.4
+- **Database**: Drizzle ORM 0.45 + PostgreSQL (Supabase)
+- **Validation**: Zod 4.3
+- **Package Manager**: pnpm 9.x
+
+## Features
+
+- Dark/light mode (next-themes)
+- Toast notifications (sonner)
+- Data table with drag-and-drop row reordering (@dnd-kit + @tanstack/react-table)
+- Interactive area charts (recharts)
+- Responsive sidebar navigation
 
 ## Pages
 
 - `/`: Launcher (button collection to navigate to sub-pages)
-- `/dashboard`: Dashboard (original home screen)
+- `/dashboard`: Dashboard with sidebar, charts, and data table
 
 Add new prototype pages as `src/app/<slug>/page.tsx`, and manage the home (`/`) button list in `src/app/page.tsx`.
+
+## Project Structure
+
+```
+src/
+├── app/           # Next.js App Router (pages, layouts, API routes)
+├── components/    # React components (ui/ for shadcn, others for app)
+├── db/            # Database (Drizzle schema, connection)
+├── hooks/         # Custom React hooks
+├── lib/           # Utilities (auth, cn)
+├── data/          # Sample data (JSON)
+└── types/         # TypeScript type definitions
+```
 
 ## Converting to a Single Project (Removing Launcher/Dashboard)
 
@@ -31,7 +61,7 @@ Example: Making `/dashboard` the single project home
 ## Running (Standalone)
 
 ```bash
-cd nextjs-app-template
+cd nextjs-saas-template
 corepack enable
 pnpm install
 

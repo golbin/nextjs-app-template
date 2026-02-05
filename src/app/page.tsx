@@ -22,10 +22,10 @@ export default function Home() {
           <div className="rounded-2xl border bg-background/70 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex flex-col gap-2">
               <h1 className="bg-gradient-to-r from-fuchsia-500 via-indigo-500 to-cyan-500 bg-clip-text text-2xl font-semibold tracking-tight text-transparent">
-                Co‑Vibe App Template
+                Next.js SaaS Template
               </h1>
               <p className="text-sm text-muted-foreground">
-                Vibe를 타며 아이디어를 현실로 만들어보세요.
+                Build your SaaS product with this template.
               </p>
             </div>
 
@@ -49,7 +49,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-2">
                   <PlusIcon className="size-4" />
-                  여러분의 아이디어를 여기에 추가해보세요.
+                  Add your idea here
                 </div>
               </Button>
             </div>

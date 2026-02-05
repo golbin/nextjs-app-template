@@ -4,104 +4,75 @@ This repo aims to be a **multi-tenant SaaS template**. The agent prioritizes "se
 
 ## Core Stack
 
-- Next.js (App Router) + Tailwind CSS + shadcn/ui
-- Better Auth (API Route Handler: `/api/auth/[...all]`)
-- Drizzle ORM + PostgreSQL (Supabase: `postgres`)
+- Next.js 16.1 (App Router) + Tailwind CSS 4 + shadcn/ui (new-york style, zinc)
+- React 19.2 + TypeScript 5.9
+- Better Auth 1.4 (API Route Handler: `/api/auth/[...all]`)
+- Drizzle ORM 0.45 + PostgreSQL (Supabase: `postgres`)
+- Zod 4.3 for validation
+
+## Additional Libraries
+
+- **@dnd-kit**: Drag-and-drop (used in DataTable row reordering)
+- **@tanstack/react-table**: Headless table (used in DataTable)
+- **recharts**: Charts (used in dashboard area chart)
+- **lucide-react**: Icons
+- **sonner**: Toast notifications
+- **vaul**: Drawer component
+- **next-themes**: Dark/light mode
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── api/auth/[...all]/  # Better Auth handler
+│   ├── dashboard/          # Dashboard page
+│   ├── layout.tsx          # Root layout (ThemeProvider, Toaster)
+│   └── page.tsx            # Launcher page
+├── components/
+│   ├── ui/                 # shadcn/ui components
+│   └── *.tsx               # App components (sidebar, charts, etc.)
+├── db/
+│   ├── index.ts            # getDb() (server-only)
+│   ├── schema.ts           # App schema
+│   └── better-auth.schema.ts
+├── hooks/
+│   └── use-mobile.ts       # Mobile detection hook
+├── lib/
+│   ├── auth.ts             # createAuth()
+│   ├── auth-client.ts      # React auth client
+│   └── utils.ts            # cn() utility
+├── data/
+│   └── dashboard.json      # Dashboard sample data
+└── types/
+    └── index.ts            # Type definitions
+```
 
 ## Local Development/Scripts
 
 - Install/Run: `pnpm install`, `pnpm dev`
 - Quality: `pnpm lint`, `pnpm typecheck`
-- shadcn:
-  - Initialize (if needed): `pnpm ui:init`
-  - Add component: `pnpm ui:add button`
-- shadcn/ui Reference:
-  - Components: https://ui.shadcn.com/docs/components
-  - Charts (examples): https://ui.shadcn.com/charts/area
-- Better Auth:
-  - Generate secret: `pnpm auth:secret`
-  - Generate Drizzle schema: `pnpm auth:generate`
-- Drizzle:
-  - Generate migration: `pnpm db:generate`
-  - Apply migration: `pnpm db:migrate`
-  - Studio: `pnpm db:studio`
+- shadcn: `pnpm ui:init` (initialize), `pnpm ui:add <name>` (add component)
+- Better Auth: `pnpm auth:secret` (generate secret), `pnpm auth:generate` (generate schema)
+- Drizzle: `pnpm db:generate`, `pnpm db:migrate`, `pnpm db:studio`
 
-## shadcn/ui Components/Charts List
+## shadcn/ui
 
-Candidates for `<name>` in `pnpm ui:add <name>` (= docs slug):
+**Current config** (`components.json`):
+- Style: `new-york` (Radix UI based)
+- Base color: `zinc`
+- Note: shadcn/ui now also supports Base UI (`style: "base-vega"`) as alternative to Radix UI
 
+**Installed components** (22):
 ```
-accordion
-alert
-alert-dialog
-aspect-ratio
-avatar
-badge
-breadcrumb
-button
-button-group
-calendar
-card
-carousel
-chart
-checkbox
-collapsible
-combobox
-command
-context-menu
-data-table
-date-picker
-dialog
-drawer
-dropdown-menu
-empty
-field
-form
-hover-card
-input
-input-group
-input-otp
-item
-kbd
-label
-menubar
-native-select
-navigation-menu
-pagination
-popover
-progress
-radio-group
-resizable
-scroll-area
-select
-separator
-sheet
-sidebar
-skeleton
-slider
-sonner
-spinner
-switch
-table
-tabs
-textarea
-toast
-toggle
-toggle-group
-tooltip
-typography
+avatar, badge, breadcrumb, button, card, chart, checkbox, drawer,
+dropdown-menu, input, label, select, separator, sheet, sidebar,
+skeleton, sonner, table, tabs, toggle, toggle-group, tooltip
 ```
 
-Charts example pages (slug):
-
-```
-area
-bar
-line
-pie
-radar
-radial
-```
+**Adding components**: `pnpm ui:add <component-name>`
+- Full list: https://ui.shadcn.com/docs/components
+- Charts: https://ui.shadcn.com/charts
 
 ## Environment Variables
 
